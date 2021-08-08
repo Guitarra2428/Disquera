@@ -1,0 +1,75 @@
+﻿@model Disquera.Models.VistasVM
+@{
+    ViewData["Title"] = "vista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="#" style="background-image: url(../imagenes/disque1.jpg); background-size:cover; position:relative;">
+    <header class="lh-lg">
+
+        <h1 class="display-6 text-center text-white">Welcome</h1>
+
+
+
+
+    </header>
+
+
+</section>
+
+<section class="bg-light">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model.Listabum.OrderBy(o => o.AlbumID))
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@item.UrlImagen" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@item.Nombre</h5>
+                        <a asp-action="Detalles" class="btn btn-success" style="border-radius:2px;" asp-route-id="@item.AlbumID"> Mas informacion</a>
+
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">@item.FechaLanzamiento</small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+
+
+<section>
+    <div class="card border bg-black">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var artista in Model.Listatista.OrderBy(a => a.ArtistaID))
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="row p-2">
+                        <div class="col-12 p-1 " style=" border-radius:5px; border:1px solid #000000">
+                            <div class="card h-100" style="border:0px">
+                                <img src="@artista.UrlImagen" class="card-img-top rounded" />
+
+                                <div class="pl-1">
+                                    <p class="card-title h-5"><b style="color:#00ffff">@artista.Nombre @artista.Apellido</b></p>
+
+                                    <p class="card-title h-5"><b style="color:#00ffff">@artista.Descripcion</b></p>
+                                </div>
+                                <div style="padding-left:5px">
+                                    <p> Genero:<b>@artista.Nombre</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>

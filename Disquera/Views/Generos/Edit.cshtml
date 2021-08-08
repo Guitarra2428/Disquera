@@ -1,0 +1,38 @@
+﻿@model Disquera.Models.Models.Genero
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container border">
+    <div class="row">
+
+        <div class="col pt-8">
+
+            <form asp-action="Edit" method="post">
+
+                <input type="hidden" asp-for="GeneroID" />
+
+                <div class="form-group row pt-4">
+                    <div class="col-2">
+                        <label asp-for="Nombre"></label>
+                    </div>
+                    <div class="col-6">
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group row pt-4 offset-3">
+                    <partial name="BotonActualizar" />
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>

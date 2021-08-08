@@ -1,0 +1,35 @@
+﻿@model Disquera.Models.Models.Genero
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container border" >
+    <div class="row">
+
+        <div class="col pt-8">
+
+            <form asp-action="Create" method="post">
+               
+
+                <div class="form-group row pt-4">
+                    <div class="col-2">
+                        <label asp-for="Nombre"></label>
+                    </div>
+                    <div class="col-6">
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre"></span>
+                    </div>
+                </div>
+
+                 
+                <div class="form-group row pt-4 offset-3">
+                  <partial name="BotonCrear" />
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>

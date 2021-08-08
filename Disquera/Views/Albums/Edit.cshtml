@@ -1,0 +1,78 @@
+﻿@model Disquera.Models.AlbumVM
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col">
+            <h2>Editar Album</h2>
+        </div>
+
+    </div>
+    <div class="border p-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"> </div>
+            <input type="hidden" asp-for="Album.AlbumID" />
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Album.Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Album.Nombre" class="form-control" />
+                    <span asp-validation-for="Album.Nombre"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Album.FechaLanzamiento"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Album.FechaLanzamiento" class="form-control" />
+                    <span asp-validation-for="Album.FechaLanzamiento"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Album.UrlImagen"></label>
+                </div>
+                <div class="col-8">
+                    <input type="file" name="imagen" value="imagen" class="form-control" />
+                </div>
+            </div>
+
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    Artista
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(a => a.Album.ArtistaID, Model.ListaArtista,
+                   "Selecciona", new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="form-group row pt-3 offset-4">
+                <partial name="BotonActualizar" />
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>

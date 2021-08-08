@@ -1,0 +1,109 @@
+﻿@model Disquera.Models.ArtistaVM
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<br />
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col">
+            <h2>Actualizar Artista</h2>
+        </div>
+
+    </div>
+    <div class="border p-4">
+        <form method="post" asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"> </div>
+            <input  type="hidden" asp-for="Artista.ArtistaID"/>
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.Nombre"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Artista.Nombre" class="form-control" />
+                    <span asp-validation-for="Artista.Nombre"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.Apellido"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Artista.Apellido" class="form-control" />
+                    <span asp-validation-for="Artista.Apellido"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.Sexo"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Artista.Sexo" class="form-control" />
+                    <span asp-validation-for="Artista.Sexo"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.FechaNacimiento"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Artista.FechaNacimiento" class="form-control" />
+                    <span asp-validation-for="Artista.FechaNacimiento"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.Descripcion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Artista.Descripcion" class="form-control" />
+                    <span asp-validation-for="Artista.Descripcion"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.GeneroID"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(a => a.Artista.GeneroID, Model.ListaGenero,
+                   "Selecciona", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Artista.UrlImagen"></label>
+                </div>
+                <div class="col-8">
+                    <input type="file" name="imagen" value="imagen" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row pt-3 offset-4">
+                <partial name="BotonActualizar" />
+            </div>
+
+
+        </form>
+
+        <div class="col-3">
+            <img src="@Model.Artista.UrlImagen"style="width:100%; border-radius:5pX;border: 1px solid #808080" />
+
+        </div>
+    </div>
+
+
+</div>
+
+
