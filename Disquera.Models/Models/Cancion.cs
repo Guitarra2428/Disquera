@@ -20,12 +20,12 @@ namespace Disquera.Models.Models
         public DateTime FechaCreacion { get; set; }
 
 
-        public int AlbumID { get; set; }         
+        public int AlbumID { get; set; }
         [ForeignKey("AlbumID")]
-        public  Album Album { get; set; }
+        public Album Album { get; set; }
 
 
-       
+
 
 
 

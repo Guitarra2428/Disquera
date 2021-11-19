@@ -72,7 +72,8 @@ namespace Disquera.Controllers
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            AlbumVM albumVM = new AlbumVM() {
+            AlbumVM albumVM = new AlbumVM()
+            {
 
                 Album = new Album(),
                 ListaArtista = contenedor.GetArtista.ListaArtista(),
@@ -156,7 +157,7 @@ namespace Disquera.Controllers
 
         #region
 
-        [HttpGet] 
+        [HttpGet]
         public IActionResult GetAll()
         {
             return Json(new { data = contenedor.GetAlbum.GetAll(Includepropidad: "Artista") });

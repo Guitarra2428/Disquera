@@ -1,0 +1,74 @@
+﻿
+
+@model Disquera.Models.Models.CancionVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col">
+            <h2>Cancion</h2>
+        </div>
+
+    </div>
+    <div class="border p-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"> </div>
+            <input type="hidden" asp-for="Cancion.CancionID"/>
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Cancion.Tema"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Cancion.Tema" class="form-control" />
+                    <span asp-validation-for="Cancion.Tema"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Cancion.TiempoReproducion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Cancion.TiempoReproducion" class="form-control" />
+                    <span asp-validation-for="Cancion.TiempoReproducion"></span>
+                </div>
+            </div>
+
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    <label asp-for="Cancion.FechaCreacion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Cancion.FechaCreacion" class="form-control" />
+                    <span asp-validation-for="Cancion.FechaCreacion"></span>
+                </div>
+            </div>
+            <div class="form-group row pt-3">
+                <div class="col-4">
+                    Album
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(a => a.Cancion.AlbumID, Model.ListaAlbum,
+                   "Selecione", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group row pt-3 offset-4">
+                <partial name="BotonCrear" />
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</div>

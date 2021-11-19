@@ -11,7 +11,7 @@ namespace Disquera.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IContenedorTrabajo contenedor;
 
-        public HomeController(ILogger<HomeController> logger ,IContenedorTrabajo _contenedor)
+        public HomeController(ILogger<HomeController> logger, IContenedorTrabajo _contenedor)
         {
             _logger = logger;
             contenedor = _contenedor;
@@ -22,7 +22,7 @@ namespace Disquera.Controllers
             VistasVM clientesVM = new VistasVM()
             {
                 Listabum = contenedor.GetAlbum.GetAll(),
-                Listatista=contenedor.GetArtista.GetAll()
+                Listatista = contenedor.GetArtista.GetAll()
 
 
             };

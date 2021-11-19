@@ -1,5 +1,4 @@
 ﻿using Disquera.AccesoDatos.Data.Repository.Irepository;
-using Disquera.Models;
 using Disquera.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -58,7 +57,7 @@ namespace Disquera.Controllers
                 return NotFound();
             }
             return View(datos);
-        }   
+        }
         [HttpPost]
         public IActionResult Edit(CancionVM cancionVM)
         {
@@ -95,7 +94,7 @@ namespace Disquera.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Json(new { data = contenedor.GetCancion.GetAll(Includepropidad:"Album") });
+            return Json(new { data = contenedor.GetCancion.GetAll(Includepropidad: "Album") });
         }
         #endregion
 
